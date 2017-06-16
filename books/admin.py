@@ -8,6 +8,7 @@ admin.site.register(Node, MPTTModelAdmin)
 
 class PageAdmin(admin.ModelAdmin):
     list_display = ('page_number', 'node')
+    list_filter = ('node',)
 
 
 admin.site.register(Page, PageAdmin)
