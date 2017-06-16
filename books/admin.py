@@ -1,3 +1,13 @@
 from django.contrib import admin
+from mptt.admin import MPTTModelAdmin
 
-# Register your models here.
+from books.models import Node, Page
+
+admin.site.register(Node, MPTTModelAdmin)
+
+
+class PageAdmin(admin.ModelAdmin):
+    list_display = ('page_number', 'node')
+
+
+admin.site.register(Page, PageAdmin)

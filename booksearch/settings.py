@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'mptt',
 
     'accounts',
+    'books',
 ]
 
 MIDDLEWARE = [
