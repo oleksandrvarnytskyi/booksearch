@@ -16,6 +16,9 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 
+from books.views import search_handler
+
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    url(r'^$', search_handler, name='main'),
 ]

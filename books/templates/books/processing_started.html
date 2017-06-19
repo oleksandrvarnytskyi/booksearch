@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% load staticfiles %}
+
+{% block content %}
+    <div class="container">
+        <div class="jumbotron">
+            <p>Request processing started. All results will be sent to {{ email }} </p>
+            <a href="{% url 'main' %}"><h4>Back to search</h4></a>
+        </div>
+    </div>
+{% endblock %}

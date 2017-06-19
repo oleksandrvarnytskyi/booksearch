@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'mptt',
+    'bootstrap3',
 
     'accounts',
     'books',
