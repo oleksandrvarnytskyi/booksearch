@@ -26,5 +26,14 @@
 
 
         </form>
+
+        <p> {{ notes }} </p>
+    {% for note in notes %}
+        <p> {{ note }} </p>
+        <h1>{{ note.page_number }}</h1>
+        <p>
+            {{ note.body }}
+        </p>
+    {% endfor %}
     </div>
 {% endblock content %}

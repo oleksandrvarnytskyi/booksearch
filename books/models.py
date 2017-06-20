@@ -23,7 +23,7 @@ class Node(MPTTModel):
 
 class Page(models.Model):
     page_number = models.PositiveIntegerField('Page number')
-    text = models.TextField('Text on the page')
+    body = models.TextField('Text on the page')
     node = models.ForeignKey(
         Node,
         related_name='pages',
