@@ -16,12 +16,13 @@
                     <div class="jumbotron">
                         {% for item in book.object.node.get_family %}
                             {% if forloop.first %}
-                                <p><u>Name of the book : </u><strong style="color: cornflowerblue;"> {{ item }}</strong></p>
+                                <p><u>Name of the book : </u>&nbsp;<strong style="color: cornflowerblue;"> {{ item }}</strong></p>
+                                <p><u>Names of book's part / section / chapter: </u></p>
                             {% else %}
-                                <p>{{ item }}</p>
+                                <p style="color: forestgreen">&nbsp;&nbsp;&nbsp;&nbsp;{{ item }}</p>
                             {% endif %}
                         {% endfor %}
-                        <h5>Page: {{ book.page_number }}</h5><br>
+                        <h5><u>Page:</u>&nbsp;{{ book.page_number }}</h5><br>
                     </div>
                 {% endfor %}
             {% else %}
