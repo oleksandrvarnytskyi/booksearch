@@ -141,22 +141,26 @@ STATICFILES_DIRS = [
 
 # EMAIL STUFF
 EMAIL_HOST = 'smtp.sendgrid.net'
+
 EMAIL_PORT = 587
+
 EMAIL_HOST_USER = 'XXXXXX'
+
 EMAIL_HOST_PASSWORD = 'XXXXXXXXXX'
+
 EMAIL_USE_TLS = True
 
+DEFAULT_FROM_EMAIL = 'XXXXXXXXXX'
 
 # HAYSTACK STUFF
 HAYSTACK_CONNECTIONS = {
     'default': {
-        'ENGINE': 'haystack.backends.elasticsearch_backend.ElasticsearchSearchEngine',
-        'URL': 'http://127.0.0.1:9200/',
-        'INDEX_NAME': 'haystack',
+        'ENGINE': 'haystack.backends.whoosh_backend.WhooshEngine',
+        'PATH': os.path.join(os.path.dirname(__file__), '../whoosh_index'),
     },
 }
 
-# HAYSTACK_SIGNAL_PROCESSOR = 'haystack.signals.RealtimeSignalProcessor'
+HAYSTACK_SIGNAL_PROCESSOR = 'haystack.signals.RealtimeSignalProcessor'
 
 
 try:

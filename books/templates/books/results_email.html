@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% load staticfiles %}
+
+{% block title %}
+{% endblock title %}
+
+{% block content %}
+    <div class="container">
+        <div class="jumbotron">
+            <p>Hi,</p>
+            <p>you received this message as the result of books searching.</p><br>
+            <p>Results for the query <strong style="color: cornflowerblue;">'{{ query }}':</strong></p><br>
+            {% if books %}
+                {% for book in books %}
+                    <div class="jumbotron">
+                        {% for item in book.object.node.get_family %}
+                            {% if forloop.first %}
+                                <p><u>Name of the book : </u><strong style="color: cornflowerblue;"> {{ item }}</strong></p>
+                            {% else %}
+                                <p>{{ item }}</p>
+                            {% endif %}
+                        {% endfor %}
+                        <h5>Page: {{ book.page_number }}</h5><br>
+                    </div>
+                {% endfor %}
+            {% else %}
+                <div class="jumbotron">
+                    <p style="color: cornflowerblue;">No results found  :(</p>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+{% endblock content %}

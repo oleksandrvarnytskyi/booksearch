@@ -4,7 +4,13 @@
 
 {% block content %}
     <div class="container" style="width: 900px">
-    <h2 style="text-align: center">Form for searching books</h2>
+    {% if flag %}
+        <div class="alert alert-danger" role="alert">
+            <h2 style="text-align: center">Please input correct email!</h2>
+        </div>
+    {% else %}
+        <h2 style="text-align: center">Form for searching books</h2>
+    {% endif %}
         <form class="form-horizontal" method="GET" action="">
             <div class="form-group">
                 <label class="control-label col-sm-2" for="search">Search for:</label>
@@ -26,14 +32,5 @@
 
 
         </form>
-
-        <p> {{ notes }} </p>
-    {% for note in notes %}
-        <p> {{ note }} </p>
-        <h1>{{ note.page_number }}</h1>
-        <p>
-            {{ note.body }}
-        </p>
-    {% endfor %}
     </div>
 {% endblock content %}
