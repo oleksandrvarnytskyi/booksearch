@@ -1,7 +1,7 @@
 from __future__ import absolute_import
 
-from django.core.mail import send_mail
 from django.template.loader import render_to_string
+from django.core.mail import send_mail
 from django.utils.html import strip_tags
 from haystack.forms import SearchForm
 
@@ -10,15 +10,13 @@ from booksearch.celery import app
 
 
 @app.task
-def process_query(get_obj, email):
+def process_query(query, email):
     """Function for processing of a request and sending email with results
     using celery"""
-    print('task begins')
-    form = SearchForm(get_obj)
+    form = SearchForm({'q': query})
     # Launch searching
     books = form.search()
     # sending email with results
-    query = get_obj.get('q')
     subject = 'Results of books searching'
     html_content = render_to_string(
         'books/results_email.html',
@@ -36,4 +34,3 @@ def process_query(get_obj, email):
         fail_silently=True,
         html_message=html_content
     )
-    print('task finished')

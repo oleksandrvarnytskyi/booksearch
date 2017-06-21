@@ -18,7 +18,11 @@ from django.contrib import admin
 
 from books.views import search_handler
 
+# Overrides the default 400 handler django.views.defaults.bad_request
+handler400 = 'books.views.bad_request'
+
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^$', search_handler, name='main'),
+    url(r'^$', search_handler, name='search'),
 ]
+
