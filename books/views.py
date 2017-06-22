@@ -1,8 +1,8 @@
 from django.http import HttpResponseBadRequest
 from django.shortcuts import render
 
-from books.forms import RequestForm
-from books.tasks import process_query
+from .forms import RequestForm
+from .tasks import process_query
 
 
 def bad_request(request):

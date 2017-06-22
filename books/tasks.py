@@ -3,6 +3,7 @@ from __future__ import absolute_import
 from django.template.loader import render_to_string
 from django.core.mail import send_mail
 from django.utils.html import strip_tags
+
 from haystack.forms import SearchForm
 
 from booksearch import settings
