@@ -6,13 +6,7 @@
 
 {% block content %}
     <div class="container" style="width: 900px">
-    {% if flag %}
-        <div class="alert alert-danger" role="alert">
-            <h2 style="text-align: center">Please input correct email!</h2>
-        </div>
-    {% else %}
         <h2 style="text-align: center">Form for searching books</h2>
-    {% endif %}
         <form class="form-horizontal" method="POST" action="">{% csrf_token %}
             {% bootstrap_form form layout='horizontal' %}
             {% bootstrap_form_errors form %}
