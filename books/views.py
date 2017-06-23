@@ -12,8 +12,8 @@ def bad_request(request):
 
 
 def search_handler(request):
-    """Function for search handling. It provides email validation and
-    launching asynchronous celery tasks in case of receiving GET request."""
+    """Function for search handling. It provides search form validation and
+    launching asynchronous celery tasks in case of receiving POST request."""
     if request.POST:
         # Put POST request into form
         form = RequestForm(request.POST)
